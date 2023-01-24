@@ -25,6 +25,7 @@ describe("Attacking Denial", function () {
     try {
       await provider.getBalance(deployer.address);
       await victim.withdraw();
+      // await victim.withdraw({ gasLimit: 1_000_000 });
     } catch (err) {
       error = err.message;
     } finally {
